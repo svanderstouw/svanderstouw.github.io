@@ -1,0 +1,365 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5em;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --borderThick: 2px;
+    --bacColor1: #78517d;
+    --bacColor2: rgb(245, 245, 245);
+    --highlightColor1: #55d6ff;
+    --ghostColor: rgba(0, 0, 0, 0.05);
+    --ghostColor2: rgba(0, 0, 0, 0.9);
+}
+
+.container {
+    font-size: 16px;
+    margin-top: 10vh;
+    overflow-x: hidden;
+}
+
+header {
+	background: var(--bacColor1);
+	height: 90vh;
+	width: 100vw;
+	color: var(--bacColor2);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+}
+
+header img {
+    height: 45vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--bacColor2);
+    margin: 1vh 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1vh 0;
+}
+
+h3 {
+    text-align: center;
+    vertical-align: text-top;
+    font-size: 1.7rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+.lightLine {
+    height: 4px;
+    width: 18rem;
+    background-color: var(--bacColor2);
+    margin: 1vh 0;
+}
+
+.darkLine {
+    height: 4px;
+    width: 18rem;
+    background-color: var(--bacColor1);
+    margin: 1vh 0;
+}
+
+header span {
+    font-size: 1.7rem;
+    margin: 1vh 0;
+}
+
+main section:nth-child(odd) {
+	background: var(--bacColor2);
+}
+
+main section:nth-child(odd) h2, main section:nth-child(odd) h3{
+	color: var(--bacColor1);
+}
+
+main section:nth-child(even) {
+	background: var(--bacColor1);
+}
+
+main section:nth-child(even) h2, main section:nth-child(even) h3{
+	color: var(--bacColor2);
+}
+
+section {
+    width: 100vw;
+    min-height: 60vh;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    font-size: 1.5rem;
+}
+
+section > * {
+    max-width: 900px;
+    width: 90%;
+	margin: 0 auto;
+}
+
+section ul {
+    padding-left: 1em;
+}
+
+#aboutMe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#aboutMeGrid {
+    display: grid;
+    margin: 3vh 0;
+    grid-column-gap: 2.5vw;
+    grid-template-rows: 1fr 9fr;
+    grid-template-columns: 7fr 4fr;   
+}
+
+#bioInfo, #skills {
+    background-color: var(--ghostColor);
+    border-radius: 1vw;
+    padding: 2vh 2vw;
+}
+
+#bioInfo {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#myProjects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#projects {
+    margin: 3vh 0;
+    display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column-gap: 2.5vw;
+}
+
+.project {
+	background: var(--ghostColor2);
+	text-align: center;
+    padding: 1rem;
+    height: 60vh;
+    border-radius: 1vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#projects * {
+	transition: 0.3s;
+}
+
+.project h3,
+.project span,
+.project a {
+	position: absolute;
+	opacity: 0;
+}
+
+.project img {
+    position: absolute;
+    height: 400px;
+    opacity: 1;
+}
+
+.project h3 {
+	top: -2rem;
+}
+
+.project span{
+    color: var(--bacColor2);
+	top: 0.5rem;
+}
+
+.project a {
+    bottom: -3rem;
+    background: var(--ghostColor2);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem 1.5rem;
+    padding-bottom: 0.6rem;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+	color: var(--bacColor2);
+	transition: 0.4s;
+	cursor: pointer;
+}
+
+.project a:hover {
+	background: #0076bf;
+}
+.project:hover img {
+    opacity: 0.2;
+}
+
+.project:hover h3 {
+	top: 3rem;
+	opacity: 1;
+}
+
+.project:hover span{
+	top: 5.5rem;
+	opacity: 1;
+}
+
+.project:hover a {
+	bottom: 4rem;
+	opacity: 1;
+}
+
+#contactMe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contactGrid {
+    margin: 3vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--ghostColor);
+    border-radius: 1vw;
+    padding: 2vh 2vw;
+}
+
+#contactGrid a{
+    text-decoration: none;
+}
+
+#contactGrid * {
+    margin: 0.5vh 0;
+}
+
+#linkedInCircle2 div{
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.2rem;
+    width: 2.2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: var(--borderThick) solid #000;
+    border-radius: 2.2rem;
+    transition: 0.2s;
+}
+
+#linkedInCircle2 div img{
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+#linkedInCircle2:hover div {
+    background-color: #0076bf;
+    border-radius: 0.4rem;
+}
+
+#navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+
+    background: #222;
+    border-bottom: 3px solid var(--highlightColor1);
+}
+
+nav {
+    display:flex;
+    justify-content: center;
+}
+
+#navLeft {
+    padding-left: 1.2vw;
+}
+
+#navRight {
+    padding-right: 1.2vw;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    padding-left: 1.2vw;
+    padding-right: 1.2vw;
+}
+
+#navName {
+    font-size: 1.7rem;
+}
+
+#linkedInCircle div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.2rem;
+    width: 2.2rem;
+    border: var(--borderThick) solid #fff;
+    border-radius: 2.2rem;
+    transition: 0.2s;
+}
+
+#linkedInCircle div img{
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+#linkedInCircle:hover div {
+    background-color: #0076bf;
+    border-radius: 0.4rem;
+}
+
+#navRight a {
+    font-size: 1.45rem;
+}
+
+.navText div {
+    padding: 2vh 0;
+    border-top: var(--borderThick) solid transparent;
+    border-bottom: var(--borderThick)  solid transparent;
+    transition: 0.2s;
+}
+
+.navText:hover div {
+    padding: 0 0;
+    color: var(--highlightColor1);
+    border-bottom: var(--borderThick) solid var(--highlightColor1);
+}
+
+footer {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--bacColor2);
+    background: #222;
+    border-top: 3px solid var(--highlightColor1);
+}
