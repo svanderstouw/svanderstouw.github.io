@@ -9,7 +9,17 @@
         addArticleEventListeners();
         addWindowEventListeners();
         addSlideShow();
+        noDragImgs();
     };
+
+    //Make all images not draggable
+    function noDragImgs() {
+        const allImgs = document.getElementsByTagName('img');
+
+        for (eachImg of allImgs) {
+            eachImg.draggable = false;
+        }
+    }
 
     //Smooth scrolling between sections using nav
     function addLinkSlider() {
@@ -23,7 +33,7 @@
                 event.preventDefault();
                 const navbarHeight = document.getElementById('navBar').offsetHeight;
                 window.scrollTo({
-                    top: section.offsetTop - (0.66 * navbarHeight),
+                    top: section.offsetTop - (0.58 * navbarHeight),
                     behavior: 'smooth',
                 });
             };
@@ -112,27 +122,35 @@
     function addSlideShow() {
 
         let slideIndex = 1;
+        let rotation;
+
         showSlides(slideIndex);
 
         // Next/previous controls
         const prev = document.getElementById('prev');
         const next = document.getElementById('next');
+
         prev.addEventListener('click', function () {
-            showSlides(slideIndex -= 1);
+            showSlides(--slideIndex);
+            clearInterval(rotation);
         });
         next.addEventListener('click', function () {
-            showSlides(slideIndex += 1);
+            showSlides(++slideIndex);
+            clearInterval(rotation);
         });
 
         // Dot controls
         const dots = document.getElementsByClassName("dot");
+
         for (let dot of dots) {
             let dotNum = dot.id.slice(- 1);
             dot.addEventListener('click', function () {
                 showSlides(slideIndex = dotNum);
+                clearInterval(rotation);
             });
         }
 
+        // Show Slides
         function showSlides(n) {
             let i;
             const slides = document.getElementsByClassName("mySlides");
@@ -148,6 +166,11 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         };
+
+        // Auto rotation
+        rotation = setInterval(function () {
+            showSlides(slideIndex += 1);
+        }, 3000);
 
     };
 

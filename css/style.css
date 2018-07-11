@@ -359,6 +359,10 @@ section ul {
     margin-top: 3vh;
 }
 
+.slideshow-container img {
+    width: 100%;
+}
+
 .mySlides {
     display: none;
 }
@@ -408,6 +412,10 @@ section ul {
     padding: 8px 12px;
     position: absolute;
     top: 0;
+}
+
+#dotBox {
+    text-align: center;
 }
 
 .dot {
