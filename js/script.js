@@ -33,7 +33,7 @@
                 event.preventDefault();
                 const navbarHeight = document.getElementById('navBar').offsetHeight;
                 window.scrollTo({
-                    top: section.offsetTop - (0.58 * navbarHeight),
+                    top: section.offsetTop - (0.66 * navbarHeight),
                     behavior: 'smooth',
                 });
             };
